@@ -24,9 +24,11 @@ namespace Good_Luck___External_Tool
             {
                 for (int j = 0; j < tileMapWidth; j++)
                 {
-                    PictureBoxGenerator(new Point(500+50*i, 50+50*j));
+                    PictureBoxGenerator(new Point(500+50*j, 50+50*i));
                 }
             }
+
+            currentTileSelected.Name = "53";
         }
 
         //Changes PictureBox Image on Click
@@ -41,6 +43,7 @@ namespace Good_Luck___External_Tool
         {
             PictureBox refBox = (PictureBox)sender;
             currentTileSelected.BackgroundImage = refBox.BackgroundImage;
+            currentTileSelected.Name = refBox.Name.Substring(refBox.Name.Length-2);
         }
 
         //Changes PictureBox Image on MouseEnter
@@ -50,6 +53,7 @@ namespace Good_Luck___External_Tool
             {
                 PictureBox tileBox = (PictureBox)sender;
                 tileBox.BackgroundImage = currentTileSelected.BackgroundImage;
+                tileBox.Name = currentTileSelected.Name;
             }
         }
 
@@ -62,6 +66,7 @@ namespace Good_Luck___External_Tool
             if (MouseButtons == MouseButtons.Left)
             {
                 tileBox.BackgroundImage = currentTileSelected.BackgroundImage;
+                tileBox.Name = currentTileSelected.Name;
             }
         }
 
@@ -74,6 +79,7 @@ namespace Good_Luck___External_Tool
             //box.Click += TileColorer;
             box.MouseEnter += TileColorerMouseEnter;
             box.MouseDown += MouseDownOnPictureBox;
+            box.Name = "53";
             
             box.BackgroundImageLayout = ImageLayout.Stretch;
             box.Size = new Size(50, 50);
@@ -109,35 +115,40 @@ namespace Good_Luck___External_Tool
         private void ButtonExport(object sender, EventArgs e)
         {
             List<Bitmap> columns = new List<Bitmap>();
-            Bitmap imageResult = null;
+
+            string output = "";
+
             if (tileMapHeight > 0 && tileMapWidth > 0)
             {
                 Bitmap currentImage = null;
+
                 for (int j = 0; j < tileMapWidth; j++)
                 {
                     currentImage = new Bitmap(tiles[j*tileMapWidth].BackgroundImage);
 
+                    output += tiles[j * tileMapWidth].Name;
+
                     for (int i = 1; i < tileMapHeight; i++)
                     {
-                        currentImage = MergeImagesVertical(currentImage, tiles[i + j * tileMapWidth].BackgroundImage);
+                        currentImage = MergeImagesHorizontal(currentImage, tiles[i + j * tileMapWidth].BackgroundImage);
+                        
+                        output += tiles[i + j * tileMapWidth].Name;
                     }
-                    
+
                     columns.Add(currentImage);
+
+                    output += "\n";
                 }
 
                 currentImage = columns[0];
                 for (int i = 1; i < tileMapWidth; i++)
                 {
-                    currentImage = MergeImagesHorizontal(currentImage, columns[i]);
+                    currentImage = MergeImagesVertical(currentImage, columns[i]);
                 }
 
-                currentImage.Save("BackgroundImageFinal.jpg");
+                System.Diagnostics.Debug.WriteLine(output);
+                currentImage.Save("../../../BackgroundImageFinal.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
             }
-
-            /*for (int i = 0; i < columns.Count; i++)
-            {
-                columns[i].Save($"BackgroundImage{i}.jpg");
-            }*/
         }
     }
 }
