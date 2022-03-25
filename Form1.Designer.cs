@@ -86,6 +86,7 @@ namespace Good_Luck___External_Tool
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.currentTileSelected = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tileSelector.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox52)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox53)).BeginInit();
@@ -809,11 +810,21 @@ namespace Good_Luck___External_Tool
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Tile";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(625, 592);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Export Image";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.ButtonExport);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1019, 638);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1173, 638);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tileSelector);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -939,6 +950,7 @@ namespace Good_Luck___External_Tool
         private System.Windows.Forms.PictureBox pictureBox48;
         private System.Windows.Forms.PictureBox currentTileSelected;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
