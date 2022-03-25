@@ -813,7 +813,7 @@ namespace Good_Luck___External_Tool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 638);
+            this.ClientSize = new System.Drawing.Size(1019, 638);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tileSelector);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
