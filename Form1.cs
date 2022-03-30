@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Good_Luck___External_Tool
 {
@@ -112,11 +113,11 @@ namespace Good_Luck___External_Tool
             return bitmap;
         }
 
-        private void ButtonExport(object sender, EventArgs e)
+        private void ImageExport(object sender, EventArgs e)
         {
             List<Bitmap> columns = new List<Bitmap>();
 
-            string output = "";
+            string output = $"{tileMapWidth},{tileMapHeight}\n";
 
             if (tileMapHeight > 0 && tileMapWidth > 0)
             {
@@ -126,13 +127,13 @@ namespace Good_Luck___External_Tool
                 {
                     currentImage = new Bitmap(tiles[j*tileMapWidth].BackgroundImage);
 
-                    output += tiles[j * tileMapWidth].Name;
+                    output += tiles[j * tileMapWidth].Name + ",";
 
                     for (int i = 1; i < tileMapHeight; i++)
                     {
                         currentImage = MergeImagesHorizontal(currentImage, tiles[i + j * tileMapWidth].BackgroundImage);
                         
-                        output += tiles[i + j * tileMapWidth].Name;
+                        output += tiles[i + j * tileMapWidth].Name + ",";
                     }
 
                     columns.Add(currentImage);
@@ -146,8 +147,35 @@ namespace Good_Luck___External_Tool
                     currentImage = MergeImagesVertical(currentImage, columns[i]);
                 }
 
+                StreamWriter writer = new StreamWriter("../../../Tiles.txt");
+                writer.WriteLine(output);
+                writer.Close();
                 System.Diagnostics.Debug.WriteLine(output);
                 currentImage.Save("../../../BackgroundImageFinal.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+        }
+
+        private void TextExport(object sender, EventArgs e)
+        {
+            string output = $"{tileMapWidth},{tileMapHeight}\n";
+
+            if (tileMapHeight > 0 && tileMapWidth > 0)
+            {
+                for (int j = 0; j < tileMapWidth; j++)
+                {
+                    output += tiles[j * tileMapWidth].Name + ",";
+
+                    for (int i = 1; i < tileMapHeight; i++)
+                    {
+                        output += tiles[i + j * tileMapWidth].Name + ",";
+                    }
+
+                    output += "\n";
+                }
+
+                StreamWriter writer = new StreamWriter("../../../Tiles.txt");
+                writer.WriteLine(output);
+                writer.Close();
             }
         }
     }

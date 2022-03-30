@@ -812,13 +812,13 @@ namespace Good_Luck___External_Tool
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(625, 592);
+            this.button1.Location = new System.Drawing.Point(731, 576);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(196, 50);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Export Image";
+            this.button1.Text = "Export Text";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.ButtonExport);
+            this.button1.Click += new System.EventHandler(this.TextExport);
             // 
             // Form1
             // 
