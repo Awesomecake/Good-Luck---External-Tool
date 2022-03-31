@@ -180,7 +180,11 @@ namespace Good_Luck___External_Tool
 
                     for (int i = 1; i < tileMapHeight; i++)
                     {
-                        output += tiles[i + j * tileMapWidth].Name + ",";
+                        output += tiles[i + j * tileMapWidth].Name;
+                        if(i < tileMapHeight - 1)
+                        {
+                            output += ",";
+                        }
                     }
 
                     output += "\n";
