@@ -86,7 +86,8 @@ namespace Good_Luck___External_Tool
             this.gameTile01e1 = new System.Windows.Forms.PictureBox();
             this.currentTileSelected = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.exportButton = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tileSelector.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile05ff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile11dd)).BeginInit();
@@ -810,21 +811,25 @@ namespace Good_Luck___External_Tool
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Tile";
             // 
-            // button1
+            // exportButton
             // 
-            this.button1.Location = new System.Drawing.Point(731, 576);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 50);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Export Text";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.TextExport);
+            this.exportButton.Location = new System.Drawing.Point(731, 576);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(196, 50);
+            this.exportButton.TabIndex = 3;
+            this.exportButton.Text = "Export Text";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.TextExport);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.FileName = "Tiles.txt";
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1173, 638);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.exportButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tileSelector);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -950,7 +955,8 @@ namespace Good_Luck___External_Tool
         private System.Windows.Forms.PictureBox gameTile07e2;
         private System.Windows.Forms.PictureBox currentTileSelected;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button exportButton;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

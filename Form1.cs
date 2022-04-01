@@ -24,6 +24,12 @@ namespace Good_Luck___External_Tool
         {
             InitializeComponent();
 
+            //Sets width of form to fix with the width of the tile grid
+            Width = 518 + 50*tileMapWidth + 30;
+
+            //Sets export button location to be centered under tile grid
+            exportButton.Left = 500 + (50*tileMapWidth - exportButton.Width)/2;
+
             //Creates the array of drawable pictureboxes
             for (int i = 0; i < tileMapHeight; i++)
             {
@@ -170,29 +176,54 @@ namespace Good_Luck___External_Tool
 
         private void TextExport(object sender, EventArgs e)
         {
-            string output = $"";
+            DialogResult result = saveFileDialog1.ShowDialog();
 
-            if (tileMapHeight > 0 && tileMapWidth > 0)
+            //If valid name is chosen
+            if (result == DialogResult.OK)
             {
-                for (int j = 0; j < tileMapWidth; j++)
-                {
-                    output += tiles[j * tileMapWidth].Name + ",";
+                string output = $"";
 
-                    for (int i = 1; i < tileMapHeight; i++)
+                if (tileMapHeight > 0 && tileMapWidth > 0)
+                {
+                    for (int j = 0; j < tileMapWidth; j++)
                     {
-                        output += tiles[i + j * tileMapWidth].Name;
-                        if(i < tileMapHeight - 1)
+                        output += tiles[j * tileMapWidth].Name + ",";
+
+                        for (int i = 1; i < tileMapHeight; i++)
                         {
-                            output += ",";
+                            output += tiles[i + j * tileMapWidth].Name;
+                            if (i < tileMapHeight - 1)
+                            {
+                                output += ",";
+                            }
                         }
+
+                        output += "\n";
                     }
 
-                    output += "\n";
-                }
+                    StreamWriter writer = null;
 
-                StreamWriter writer = new StreamWriter("../../../Tiles.txt");
-                writer.WriteLine(output);
-                writer.Close();
+                    try
+                    {
+                        writer = new StreamWriter(saveFileDialog1.FileName);
+                        writer.WriteLine(output);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("File could not be saved", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    finally
+                    {
+                        saveFileDialog1.FileName = saveFileDialog1.FileName.Split(@"\")[^1];
+
+                        if (writer != null)
+                            writer.Close();
+                    }
+
+                    //Displays that file was saved properly
+                    MessageBox.Show("File saved successfully", "File saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }
