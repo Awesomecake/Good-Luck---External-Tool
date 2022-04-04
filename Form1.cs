@@ -14,11 +14,16 @@ namespace Good_Luck___External_Tool
     public partial class Form1 : Form
     {
         int tileMapWidth = 10;
-        int tileMapHeight = 10;
+        int tileMapHeight = 6;
+        int totalTiles;
         List<PictureBox> tiles = new List<PictureBox>();
 
-        bool isPlayerPlaced = false;
-        int numDoors = 0;
+        List<PictureBox> gridImages = new List<PictureBox>();
+
+        PictureBox topDoor;
+        PictureBox bottomDoor;
+        PictureBox leftDoor;
+        PictureBox rightDoor;
 
         public Form1()
         {
@@ -29,6 +34,8 @@ namespace Good_Luck___External_Tool
 
             //Sets export button location to be centered under tile grid
             exportButton.Left = 500 + (50*tileMapWidth - exportButton.Width)/2;
+
+            totalTiles = tileMapWidth * tileMapHeight;
 
             //Creates the array of drawable pictureboxes
             for (int i = 0; i < tileMapHeight; i++)
@@ -42,6 +49,61 @@ namespace Good_Luck___External_Tool
 
             //Sets value of default tile to "05ff", the empty floor tile
             currentTileSelected.Name = "05ff";
+
+            //Saving all TileSelector PictureBoxes to a list 
+            //So I can read in files and know what tile is what
+            //There hopefully is a more efficient way to do this
+            #region 
+            gridImages.Add(gameTile01e1);
+            gridImages.Add(gameTile02e1);
+            gridImages.Add(gameTile03e1);
+            gridImages.Add(gameTile04e1);
+            gridImages.Add(gameTile05e1);
+            gridImages.Add(gameTile06e1);
+            gridImages.Add(gameTile07e1);
+            gridImages.Add(gameTile08e1);
+            gridImages.Add(gameTile09e1);
+            gridImages.Add(gameTile01e2);
+            gridImages.Add(gameTile02e2);
+            gridImages.Add(gameTile03e2);
+            gridImages.Add(gameTile04e2);
+            gridImages.Add(gameTile05e2);
+            gridImages.Add(gameTile06e2);
+            gridImages.Add(gameTile07e2);
+            gridImages.Add(gameTile08e2);
+            gridImages.Add(gameTile09e2);
+            gridImages.Add(gameTile01c1);
+            gridImages.Add(gameTile02c1);
+            gridImages.Add(gameTile03c1);
+            gridImages.Add(gameTile04c1);
+            gridImages.Add(gameTile05c1);
+            gridImages.Add(gameTile06c1);
+            gridImages.Add(gameTile07c1);
+            gridImages.Add(gameTile08c1);
+            gridImages.Add(gameTile09c1);
+            gridImages.Add(gameTile01c2);
+            gridImages.Add(gameTile02c2);
+            gridImages.Add(gameTile03c2);
+            gridImages.Add(gameTile04c2);
+            gridImages.Add(gameTile05c2);
+            gridImages.Add(gameTile06c2);
+            gridImages.Add(gameTile07c2);
+            gridImages.Add(gameTile08c2);
+            gridImages.Add(gameTile09c2);
+            gridImages.Add(gameTile01ff);
+            gridImages.Add(gameTile02ff);
+            gridImages.Add(gameTile03ff);
+            gridImages.Add(gameTile04ff);
+            gridImages.Add(gameTile05ff);
+            gridImages.Add(gameTile06ff);
+            gridImages.Add(gameTile07ff);
+            gridImages.Add(gameTile08ff);
+            gridImages.Add(gameTile09ff);
+            gridImages.Add(gameTile10dd);
+            gridImages.Add(gameTile11dd);
+            gridImages.Add(gameTile12dd);
+            gridImages.Add(gameTile13dd);
+            #endregion 
         }
 
         //Changes held image
@@ -55,53 +117,8 @@ namespace Good_Luck___External_Tool
         //Changes PictureBox Image on MouseEnter
         private void TileColorerMouseEnter(object sender, EventArgs e)
         {
-            if (MouseButtons == MouseButtons.Left)
-            {
-                PictureBox tileBox = (PictureBox)sender;
-
-                //If the tile being drawn on was a player spawning tile, the tile is removed, so players = false
-                if (tileBox.Name.Substring(2) == "pp")
-                {
-                    isPlayerPlaced = false;
-                }
-
-                //If the tile being drawn on was a door, tile is removed, so number of doors goes down
-                if(tileBox.Name.Substring(2) == "dd")
-                {
-                    numDoors--;
-                }
-
-                //If the current tile is a player-spawning tile
-                if (currentTileSelected.Name.Substring(2) == "pp")
-                {
-                    //It can only be drawn if there are no other player tiles
-                    if (!isPlayerPlaced)
-                    {
-                        //Player tile is drawn, so true
-                        isPlayerPlaced = true;
-                        tileBox.BackgroundImage = currentTileSelected.BackgroundImage;
-                        tileBox.Name = currentTileSelected.Name;
-                    }
-                }
-                //If the current tile is a door tile
-                else if (currentTileSelected.Name.Substring(2) == "dd")
-                {
-                    //Can only draw if there is less than 3 doors
-                    if(numDoors < 3)
-                    {
-                        numDoors++;
-                        tileBox.BackgroundImage = currentTileSelected.BackgroundImage;
-                        tileBox.Name = currentTileSelected.Name;
-                    }
-                }
-                //Any other tile draws normally
-                else
-                {
-                    tileBox.BackgroundImage = currentTileSelected.BackgroundImage;
-                    tileBox.Name = currentTileSelected.Name;
-                }
-                
-            }
+            PictureBox tileBox = (PictureBox)sender;
+            TilePlacerHelper(tileBox);
         }
 
         //Changes PictureBox when Mouse is clicked inside Box
@@ -110,39 +127,54 @@ namespace Good_Luck___External_Tool
             PictureBox tileBox = (PictureBox)sender;
             tileBox.Capture = false;
 
+            TilePlacerHelper(tileBox);
+        }
+
+        private void TilePlacerHelper(PictureBox tileBox)
+        {
             if (MouseButtons == MouseButtons.Left)
             {
-                //If the tile being drawn on was a player spawning tile, the tile is removed, so players = false
-                if (tileBox.Name.Substring(2) == "pp")
+                
+                //If the current tile is a door tile
+                if (currentTileSelected.Name.Substring(2) == "dd")
                 {
-                    isPlayerPlaced = false;
-                }
+                    string tileClass = currentTileSelected.Name.Substring(0, 2);
+                    int tileLocation = tiles.IndexOf(tileBox);
 
-                //If the tile being drawn on was a door, tile is removed, so number of doors goes down
-                if (tileBox.Name.Substring(2) == "dd")
-                {
-                    numDoors--;
-                }
-
-                //If the current tile is a player-spawning tile
-                if (currentTileSelected.Name.Substring(2) == "pp")
-                {
-                    //It can only be drawn if there are no other player tiles
-                    if (!isPlayerPlaced)
+                    //Can only draw if there is less than 3 doors
+                    if (tileLocation > 0 && tileLocation < tileMapWidth - 1 && tileClass == "10")
                     {
-                        //Player tile is drawn, so true
-                        isPlayerPlaced = true;
+                        if(topDoor != null)
+                            topDoor.BackgroundImage = gameTile05ff.BackgroundImage;
+
+                        topDoor = tileBox;
                         tileBox.BackgroundImage = currentTileSelected.BackgroundImage;
                         tileBox.Name = currentTileSelected.Name;
                     }
-                }
-                //If the current tile is a door tile
-                else if (currentTileSelected.Name.Substring(2) == "dd")
-                {
-                    //Can only draw if there is less than 3 doors
-                    if (numDoors < 3)
+                    if (tileLocation > totalTiles - tileMapWidth && tileLocation < totalTiles - 1 && tileClass == "12")
                     {
-                        numDoors++;
+                        if (bottomDoor != null)
+                            bottomDoor.BackgroundImage = gameTile05ff.BackgroundImage;
+
+                        bottomDoor = tileBox;
+                        tileBox.BackgroundImage = currentTileSelected.BackgroundImage;
+                        tileBox.Name = currentTileSelected.Name;
+                    }
+                    if (tileLocation%tileMapWidth == 0 && tileLocation != 0 && tileLocation != totalTiles - tileMapWidth && tileClass == "13")
+                    {
+                        if (leftDoor != null)
+                            leftDoor.BackgroundImage = gameTile05ff.BackgroundImage;
+
+                        leftDoor = tileBox;
+                        tileBox.BackgroundImage = currentTileSelected.BackgroundImage;
+                        tileBox.Name = currentTileSelected.Name;
+                    }
+                    if (tileLocation % tileMapWidth == tileMapWidth-1 && tileLocation != tileMapWidth-1 && tileLocation != totalTiles - 1 && tileClass == "11")
+                    {
+                        if (rightDoor != null)
+                            rightDoor.BackgroundImage = gameTile05ff.BackgroundImage;
+
+                        rightDoor = tileBox;
                         tileBox.BackgroundImage = currentTileSelected.BackgroundImage;
                         tileBox.Name = currentTileSelected.Name;
                     }
@@ -187,11 +219,11 @@ namespace Good_Luck___External_Tool
                 {
                     for (int j = 0; j < tileMapWidth; j++)
                     {
-                        output += tiles[j * tileMapWidth].Name + ",";
+                        output += tiles[j * tileMapHeight].Name + ",";
 
                         for (int i = 1; i < tileMapHeight; i++)
                         {
-                            output += tiles[i + j * tileMapWidth].Name;
+                            output += tiles[i + j * tileMapHeight].Name;
                             if (i < tileMapHeight - 1)
                             {
                                 output += ",";

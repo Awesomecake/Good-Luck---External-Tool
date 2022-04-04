@@ -34,8 +34,6 @@ namespace Good_Luck___External_Tool
             this.gameTile05ff = new System.Windows.Forms.PictureBox();
             this.gameTile11dd = new System.Windows.Forms.PictureBox();
             this.gameTile13dd = new System.Windows.Forms.PictureBox();
-            this.gameTile11pp = new System.Windows.Forms.PictureBox();
-            this.gameTile13pp = new System.Windows.Forms.PictureBox();
             this.gameTile03ff = new System.Windows.Forms.PictureBox();
             this.gameTile09ff = new System.Windows.Forms.PictureBox();
             this.gameTile09c2 = new System.Windows.Forms.PictureBox();
@@ -69,7 +67,6 @@ namespace Good_Luck___External_Tool
             this.gameTile08e1 = new System.Windows.Forms.PictureBox();
             this.gameTile07e1 = new System.Windows.Forms.PictureBox();
             this.gameTile12dd = new System.Windows.Forms.PictureBox();
-            this.gameTile12pp = new System.Windows.Forms.PictureBox();
             this.gameTile06c1 = new System.Windows.Forms.PictureBox();
             this.gameTile05c1 = new System.Windows.Forms.PictureBox();
             this.gameTile04c1 = new System.Windows.Forms.PictureBox();
@@ -77,7 +74,6 @@ namespace Good_Luck___External_Tool
             this.gameTile05e1 = new System.Windows.Forms.PictureBox();
             this.gameTile04e1 = new System.Windows.Forms.PictureBox();
             this.gameTile10dd = new System.Windows.Forms.PictureBox();
-            this.gameTile10pp = new System.Windows.Forms.PictureBox();
             this.gameTile03c1 = new System.Windows.Forms.PictureBox();
             this.gameTile02c1 = new System.Windows.Forms.PictureBox();
             this.gameTile01c1 = new System.Windows.Forms.PictureBox();
@@ -92,8 +88,6 @@ namespace Good_Luck___External_Tool
             ((System.ComponentModel.ISupportInitialize)(this.gameTile05ff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile11dd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile13dd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gameTile11pp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gameTile13pp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile03ff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile09ff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile09c2)).BeginInit();
@@ -127,7 +121,6 @@ namespace Good_Luck___External_Tool
             ((System.ComponentModel.ISupportInitialize)(this.gameTile08e1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile07e1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile12dd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gameTile12pp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile06c1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile05c1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile04c1)).BeginInit();
@@ -135,7 +128,6 @@ namespace Good_Luck___External_Tool
             ((System.ComponentModel.ISupportInitialize)(this.gameTile05e1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile04e1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile10dd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gameTile10pp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile03c1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile02c1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile01c1)).BeginInit();
@@ -151,8 +143,6 @@ namespace Good_Luck___External_Tool
             this.tileSelector.Controls.Add(this.gameTile05ff);
             this.tileSelector.Controls.Add(this.gameTile11dd);
             this.tileSelector.Controls.Add(this.gameTile13dd);
-            this.tileSelector.Controls.Add(this.gameTile11pp);
-            this.tileSelector.Controls.Add(this.gameTile13pp);
             this.tileSelector.Controls.Add(this.gameTile03ff);
             this.tileSelector.Controls.Add(this.gameTile09ff);
             this.tileSelector.Controls.Add(this.gameTile09c2);
@@ -186,7 +176,6 @@ namespace Good_Luck___External_Tool
             this.tileSelector.Controls.Add(this.gameTile08e1);
             this.tileSelector.Controls.Add(this.gameTile07e1);
             this.tileSelector.Controls.Add(this.gameTile12dd);
-            this.tileSelector.Controls.Add(this.gameTile12pp);
             this.tileSelector.Controls.Add(this.gameTile06c1);
             this.tileSelector.Controls.Add(this.gameTile05c1);
             this.tileSelector.Controls.Add(this.gameTile04c1);
@@ -194,7 +183,6 @@ namespace Good_Luck___External_Tool
             this.tileSelector.Controls.Add(this.gameTile05e1);
             this.tileSelector.Controls.Add(this.gameTile04e1);
             this.tileSelector.Controls.Add(this.gameTile10dd);
-            this.tileSelector.Controls.Add(this.gameTile10pp);
             this.tileSelector.Controls.Add(this.gameTile03c1);
             this.tileSelector.Controls.Add(this.gameTile02c1);
             this.tileSelector.Controls.Add(this.gameTile01c1);
@@ -212,7 +200,7 @@ namespace Good_Luck___External_Tool
             // 
             this.gameTile05ff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gameTile05ff.BackgroundImage")));
             this.gameTile05ff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gameTile05ff.Location = new System.Drawing.Point(230, 362);
+            this.gameTile05ff.Location = new System.Drawing.Point(6, 362);
             this.gameTile05ff.Name = "gameTile05ff";
             this.gameTile05ff.Size = new System.Drawing.Size(50, 50);
             this.gameTile05ff.TabIndex = 53;
@@ -223,7 +211,7 @@ namespace Good_Luck___External_Tool
             // 
             this.gameTile11dd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gameTile11dd.BackgroundImage")));
             this.gameTile11dd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gameTile11dd.Location = new System.Drawing.Point(174, 362);
+            this.gameTile11dd.Location = new System.Drawing.Point(342, 82);
             this.gameTile11dd.Name = "gameTile11dd";
             this.gameTile11dd.Size = new System.Drawing.Size(50, 50);
             this.gameTile11dd.TabIndex = 52;
@@ -234,34 +222,12 @@ namespace Good_Luck___External_Tool
             // 
             this.gameTile13dd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gameTile13dd.BackgroundImage")));
             this.gameTile13dd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gameTile13dd.Location = new System.Drawing.Point(118, 362);
+            this.gameTile13dd.Location = new System.Drawing.Point(342, 26);
             this.gameTile13dd.Name = "gameTile13dd";
             this.gameTile13dd.Size = new System.Drawing.Size(50, 50);
             this.gameTile13dd.TabIndex = 51;
             this.gameTile13dd.TabStop = false;
             this.gameTile13dd.Click += new System.EventHandler(this.TileSelector);
-            // 
-            // gameTile11pp
-            // 
-            this.gameTile11pp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gameTile11pp.BackgroundImage")));
-            this.gameTile11pp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gameTile11pp.Location = new System.Drawing.Point(62, 362);
-            this.gameTile11pp.Name = "gameTile11pp";
-            this.gameTile11pp.Size = new System.Drawing.Size(50, 50);
-            this.gameTile11pp.TabIndex = 50;
-            this.gameTile11pp.TabStop = false;
-            this.gameTile11pp.Click += new System.EventHandler(this.TileSelector);
-            // 
-            // gameTile13pp
-            // 
-            this.gameTile13pp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gameTile13pp.BackgroundImage")));
-            this.gameTile13pp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gameTile13pp.Location = new System.Drawing.Point(6, 362);
-            this.gameTile13pp.Name = "gameTile13pp";
-            this.gameTile13pp.Size = new System.Drawing.Size(50, 50);
-            this.gameTile13pp.TabIndex = 49;
-            this.gameTile13pp.TabStop = false;
-            this.gameTile13pp.Click += new System.EventHandler(this.TileSelector);
             // 
             // gameTile03ff
             // 
@@ -626,17 +592,6 @@ namespace Good_Luck___External_Tool
             this.gameTile12dd.TabStop = false;
             this.gameTile12dd.Click += new System.EventHandler(this.TileSelector);
             // 
-            // gameTile12pp
-            // 
-            this.gameTile12pp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gameTile12pp.BackgroundImage")));
-            this.gameTile12pp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gameTile12pp.Location = new System.Drawing.Point(342, 82);
-            this.gameTile12pp.Name = "gameTile12pp";
-            this.gameTile12pp.Size = new System.Drawing.Size(50, 50);
-            this.gameTile12pp.TabIndex = 15;
-            this.gameTile12pp.TabStop = false;
-            this.gameTile12pp.Click += new System.EventHandler(this.TileSelector);
-            // 
             // gameTile06c1
             // 
             this.gameTile06c1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gameTile06c1.BackgroundImage")));
@@ -713,17 +668,6 @@ namespace Good_Luck___External_Tool
             this.gameTile10dd.TabIndex = 8;
             this.gameTile10dd.TabStop = false;
             this.gameTile10dd.Click += new System.EventHandler(this.TileSelector);
-            // 
-            // gameTile10pp
-            // 
-            this.gameTile10pp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gameTile10pp.BackgroundImage")));
-            this.gameTile10pp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gameTile10pp.Location = new System.Drawing.Point(342, 26);
-            this.gameTile10pp.Name = "gameTile10pp";
-            this.gameTile10pp.Size = new System.Drawing.Size(50, 50);
-            this.gameTile10pp.TabIndex = 6;
-            this.gameTile10pp.TabStop = false;
-            this.gameTile10pp.Click += new System.EventHandler(this.TileSelector);
             // 
             // gameTile03c1
             // 
@@ -841,8 +785,6 @@ namespace Good_Luck___External_Tool
             ((System.ComponentModel.ISupportInitialize)(this.gameTile05ff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile11dd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile13dd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gameTile11pp)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gameTile13pp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile03ff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile09ff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile09c2)).EndInit();
@@ -876,7 +818,6 @@ namespace Good_Luck___External_Tool
             ((System.ComponentModel.ISupportInitialize)(this.gameTile08e1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile07e1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile12dd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gameTile12pp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile06c1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile05c1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile04c1)).EndInit();
@@ -884,7 +825,6 @@ namespace Good_Luck___External_Tool
             ((System.ComponentModel.ISupportInitialize)(this.gameTile05e1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile04e1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile10dd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gameTile10pp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile03c1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile02c1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile01c1)).EndInit();
@@ -925,7 +865,6 @@ namespace Good_Luck___External_Tool
         private System.Windows.Forms.PictureBox gameTile08e1;
         private System.Windows.Forms.PictureBox gameTile07e1;
         private System.Windows.Forms.PictureBox gameTile12dd;
-        private System.Windows.Forms.PictureBox gameTile12pp;
         private System.Windows.Forms.PictureBox gameTile06c1;
         private System.Windows.Forms.PictureBox gameTile05c1;
         private System.Windows.Forms.PictureBox gameTile04c1;
@@ -933,7 +872,6 @@ namespace Good_Luck___External_Tool
         private System.Windows.Forms.PictureBox gameTile05e1;
         private System.Windows.Forms.PictureBox gameTile04e1;
         private System.Windows.Forms.PictureBox gameTile10dd;
-        private System.Windows.Forms.PictureBox gameTile10pp;
         private System.Windows.Forms.PictureBox gameTile03c1;
         private System.Windows.Forms.PictureBox gameTile02c1;
         private System.Windows.Forms.PictureBox gameTile01c1;
@@ -943,8 +881,6 @@ namespace Good_Luck___External_Tool
         private System.Windows.Forms.PictureBox gameTile05ff;
         private System.Windows.Forms.PictureBox gameTile11dd;
         private System.Windows.Forms.PictureBox gameTile13dd;
-        private System.Windows.Forms.PictureBox gameTile11pp;
-        private System.Windows.Forms.PictureBox gameTile13pp;
         private System.Windows.Forms.PictureBox gameTile03ff;
         private System.Windows.Forms.PictureBox gameTile09ff;
         private System.Windows.Forms.PictureBox gameTile09c2;
