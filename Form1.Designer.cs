@@ -84,6 +84,8 @@ namespace Good_Luck___External_Tool
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.exportButton = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.loadButton = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tileSelector.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile05ff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile11dd)).BeginInit();
@@ -769,10 +771,25 @@ namespace Good_Luck___External_Tool
             // 
             this.saveFileDialog1.FileName = "Tiles.txt";
             // 
+            // loadButton
+            // 
+            this.loadButton.Location = new System.Drawing.Point(731, 503);
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Size = new System.Drawing.Size(196, 50);
+            this.loadButton.TabIndex = 4;
+            this.loadButton.Text = "Load Text";
+            this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.LoadData);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1173, 638);
+            this.Controls.Add(this.loadButton);
             this.Controls.Add(this.exportButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tileSelector);
@@ -893,6 +910,8 @@ namespace Good_Luck___External_Tool
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button exportButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button loadButton;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
