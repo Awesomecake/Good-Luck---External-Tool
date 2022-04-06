@@ -31,6 +31,8 @@ namespace Good_Luck___External_Tool
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tileSelector = new System.Windows.Forms.GroupBox();
+            this.gameTile15ff = new System.Windows.Forms.PictureBox();
+            this.gameTile14ff = new System.Windows.Forms.PictureBox();
             this.gameTile05ff = new System.Windows.Forms.PictureBox();
             this.gameTile11dd = new System.Windows.Forms.PictureBox();
             this.gameTile13dd = new System.Windows.Forms.PictureBox();
@@ -87,6 +89,8 @@ namespace Good_Luck___External_Tool
             this.loadButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tileSelector.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gameTile15ff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameTile14ff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile05ff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile11dd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile13dd)).BeginInit();
@@ -142,6 +146,8 @@ namespace Good_Luck___External_Tool
             // 
             // tileSelector
             // 
+            this.tileSelector.Controls.Add(this.gameTile15ff);
+            this.tileSelector.Controls.Add(this.gameTile14ff);
             this.tileSelector.Controls.Add(this.gameTile05ff);
             this.tileSelector.Controls.Add(this.gameTile11dd);
             this.tileSelector.Controls.Add(this.gameTile13dd);
@@ -198,11 +204,33 @@ namespace Good_Luck___External_Tool
             this.tileSelector.TabStop = false;
             this.tileSelector.Text = "Game Tiles";
             // 
+            // gameTile15ff
+            // 
+            this.gameTile15ff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gameTile15ff.BackgroundImage")));
+            this.gameTile15ff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.gameTile15ff.Location = new System.Drawing.Point(62, 362);
+            this.gameTile15ff.Name = "gameTile15ff";
+            this.gameTile15ff.Size = new System.Drawing.Size(50, 50);
+            this.gameTile15ff.TabIndex = 55;
+            this.gameTile15ff.TabStop = false;
+            this.gameTile15ff.Click += new System.EventHandler(this.TileSelector);
+            // 
+            // gameTile14ff
+            // 
+            this.gameTile14ff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gameTile14ff.BackgroundImage")));
+            this.gameTile14ff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.gameTile14ff.Location = new System.Drawing.Point(6, 362);
+            this.gameTile14ff.Name = "gameTile14ff";
+            this.gameTile14ff.Size = new System.Drawing.Size(50, 50);
+            this.gameTile14ff.TabIndex = 54;
+            this.gameTile14ff.TabStop = false;
+            this.gameTile14ff.Click += new System.EventHandler(this.TileSelector);
+            // 
             // gameTile05ff
             // 
             this.gameTile05ff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gameTile05ff.BackgroundImage")));
             this.gameTile05ff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gameTile05ff.Location = new System.Drawing.Point(6, 362);
+            this.gameTile05ff.Location = new System.Drawing.Point(118, 362);
             this.gameTile05ff.Name = "gameTile05ff";
             this.gameTile05ff.Size = new System.Drawing.Size(50, 50);
             this.gameTile05ff.TabIndex = 53;
@@ -769,7 +797,8 @@ namespace Good_Luck___External_Tool
             // 
             // saveFileDialog1
             // 
-            this.saveFileDialog1.FileName = "Tiles.txt";
+            this.saveFileDialog1.Filter = "Level Files|*.level";
+            this.saveFileDialog1.Title = "Save a level file";
             // 
             // loadButton
             // 
@@ -783,7 +812,7 @@ namespace Good_Luck___External_Tool
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Level Files|*.level";
             // 
             // Form1
             // 
@@ -799,6 +828,8 @@ namespace Good_Luck___External_Tool
             this.Name = "Form1";
             this.Text = "External Tool";
             this.tileSelector.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gameTile15ff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameTile14ff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile05ff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile11dd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTile13dd)).EndInit();
@@ -912,6 +943,8 @@ namespace Good_Luck___External_Tool
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.PictureBox gameTile15ff;
+        private System.Windows.Forms.PictureBox gameTile14ff;
     }
 }
 

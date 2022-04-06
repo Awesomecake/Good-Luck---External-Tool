@@ -104,6 +104,8 @@ namespace Good_Luck___External_Tool
             gridImages.Add(gameTile11dd);
             gridImages.Add(gameTile12dd);
             gridImages.Add(gameTile13dd);
+            gridImages.Add(gameTile14ff);
+            gridImages.Add(gameTile15ff);
             #endregion 
         }
 
@@ -308,107 +310,110 @@ namespace Good_Luck___External_Tool
         {
             DialogResult result = openFileDialog1.ShowDialog();
 
-            StreamReader reader = null;
-            try
+            if(result == DialogResult.OK)
             {
-                //Reads from file location
-                reader = new StreamReader(openFileDialog1.FileName);
-
-                //Splits line on | character
-                int topDoorLoc = int.Parse(reader.ReadLine());
-                int leftDoorLoc = int.Parse(reader.ReadLine());
-                int rightDoorLoc = int.Parse(reader.ReadLine());
-                int bottomDoorLoc = int.Parse(reader.ReadLine());
-
-                string line = null;
-
-                //Clears all PictureBoxes that existed
-                if (tiles != null)
+                StreamReader reader = null;
+                try
                 {
-                    for (int i = 0; i < tiles.Count; i++)
+                    //Reads from file location
+                    reader = new StreamReader(openFileDialog1.FileName);
+
+                    //Splits line on | character
+                    int topDoorLoc = int.Parse(reader.ReadLine());
+                    int leftDoorLoc = int.Parse(reader.ReadLine());
+                    int rightDoorLoc = int.Parse(reader.ReadLine());
+                    int bottomDoorLoc = int.Parse(reader.ReadLine());
+
+                    string line = null;
+
+                    //Clears all PictureBoxes that existed
+                    if (tiles != null)
                     {
-                        tiles[i].Dispose();
+                        for (int i = 0; i < tiles.Count; i++)
+                        {
+                            tiles[i].Dispose();
+                        }
+                    }
+
+                    //Creates a new array with accurate width and height values
+                    tiles = new List<PictureBox>();
+
+                    //Loops through array and fills it with PictureBoxes
+
+                    int x = 0;
+
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        string[] split = line.Split(",");
+
+                        for (int i = 0; i < split.Length; i++)
+                        {
+                            PictureBoxLoadGenerator(new Point(500 + 50 * i, 50 + 50 * x), split[i]);
+                        }
+
+                        x++;
+                    }
+
+                    //Sets width of form to fix with the width of the tile grid
+                    Width = 518 + 50 * tileMapWidth + 30;
+
+                    //Sets export button location to be centered under tile grid
+                    exportButton.Left = 500 + (50 * tileMapWidth - exportButton.Width) / 2;
+                    loadButton.Left = 500 + (50 * tileMapWidth - loadButton.Width) / 2;
+
+                    totalTiles = tileMapWidth * tileMapHeight;
+
+                    if (topDoorLoc == -1)
+                        topDoor = null;
+                    else
+                    {
+                        topDoor = tiles[topDoorLoc];
+                    }
+
+                    if (leftDoorLoc == -1)
+                        leftDoor = null;
+                    else
+                    {
+                        leftDoor = tiles[leftDoorLoc];
+                    }
+
+                    if (rightDoorLoc == -1)
+                        rightDoor = null;
+                    else
+                    {
+                        rightDoor = tiles[rightDoorLoc];
+                    }
+
+                    if (bottomDoorLoc == -1)
+                        bottomDoor = null;
+                    else
+                    {
+                        bottomDoor = tiles[bottomDoorLoc];
+                    }
+                }
+                catch (Exception)
+                {
+                    //Displays that an error occurs and disposes the invalid Level Designer
+                    MessageBox.Show("File could not be loaded", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    //Dispose();
+                    return;
+                }
+                finally
+                {
+                    //Sets FileDialog's default name to be the file chosen
+                    openFileDialog1.FileName = openFileDialog1.FileName.Split("\\")[^1];
+
+                    //Closes StreamReader
+                    if (reader != null)
+                    {
+                        reader.Close();
                     }
                 }
 
-                //Creates a new array with accurate width and height values
-                tiles = new List<PictureBox>();
-
-                //Loops through array and fills it with PictureBoxes
-
-                int x = 0;
-
-                while ((line = reader.ReadLine()) != null)
-                {
-                    string[] split = line.Split(",");
-
-                    for (int i = 0; i < split.Length; i++)
-                    {
-                        PictureBoxLoadGenerator(new Point(500 + 50 * i, 50 + 50 * x), split[i]);
-                    }
-
-                    x++;
-                }
-
-                //Sets width of form to fix with the width of the tile grid
-                Width = 518 + 50 * tileMapWidth + 30;
-
-                //Sets export button location to be centered under tile grid
-                exportButton.Left = 500 + (50 * tileMapWidth - exportButton.Width) / 2;
-                loadButton.Left = 500 + (50 * tileMapWidth - loadButton.Width) / 2;
-
-                totalTiles = tileMapWidth * tileMapHeight;
-
-                if(topDoorLoc == -1)
-                    topDoor = null;
-                else
-                {
-                    topDoor = tiles[topDoorLoc];
-                }
-
-                if (leftDoorLoc == -1)
-                    leftDoor = null;
-                else
-                {
-                    leftDoor = tiles[leftDoorLoc];
-                }
-
-                if (rightDoorLoc == -1)
-                    rightDoor = null;
-                else
-                {
-                    rightDoor = tiles[rightDoorLoc];
-                }
-
-                if (bottomDoorLoc == -1)
-                    bottomDoor = null;
-                else
-                {
-                    bottomDoor = tiles[bottomDoorLoc];
-                }
+                //Displays that the file was loaded successfully
+                MessageBox.Show("File loaded successfully", "File loaded", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception)
-            {
-                //Displays that an error occurs and disposes the invalid Level Designer
-                MessageBox.Show("File could not be loaded", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                //Dispose();
-                return;
-            }
-            finally
-            {
-                //Sets FileDialog's default name to be the file chosen
-                openFileDialog1.FileName = openFileDialog1.FileName.Split("\\")[^1];
-
-                //Closes StreamReader
-                if (reader != null)
-                {
-                    reader.Close();
-                }
-            }
-
-            //Displays that the file was loaded successfully
-            MessageBox.Show("File loaded successfully", "File loaded", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
