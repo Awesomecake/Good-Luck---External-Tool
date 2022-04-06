@@ -197,6 +197,23 @@ namespace Good_Luck___External_Tool
                 //Any other tile draws normally
                 else
                 {
+                    if (tileBox.Name == "10dd")
+                    {
+                        topDoor = null;
+                    }
+                    else if (tileBox.Name == "11dd")
+                    {
+                        rightDoor = null;
+                    }
+                    else if (tileBox.Name == "12dd")
+                    {
+                        bottomDoor = null;
+                    }
+                    else if (tileBox.Name == "13dd")
+                    {
+                        leftDoor = null;
+                    }
+
                     tileBox.BackgroundImage = currentTileSelected.BackgroundImage;
                     tileBox.Name = currentTileSelected.Name;
                 }
