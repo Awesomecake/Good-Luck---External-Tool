@@ -277,7 +277,8 @@ namespace Good_Luck___External_Tool
                                 output += ",";
                         }
 
-                        output += "\n";
+                        if(j < tileMapHeight-1)
+                           output += "\n";
                     }                    
 
                     StreamWriter writer = null;
@@ -285,7 +286,7 @@ namespace Good_Luck___External_Tool
                     try
                     {
                         writer = new StreamWriter(saveFileDialog1.FileName);
-                        writer.WriteLine(output);
+                        writer.Write(output);
                     }
                     catch (Exception)
                     {
